@@ -17,42 +17,7 @@
 </section>
 <section class="page" id="upgrade"><div class="pageTitle">Upgrade your level</div><div class="card"><div class="row"><div><div class="eyebrow">Current mining power</div><div style="font-size:26px;font-weight:800;margin-top:3px">18 <span class="unit">LOOT/hr</span></div></div><span class="pill">Level 1</span></div><div class="muted">Unlock additional miners to increase your total mining speed.</div></div><div class="sectionhead">Available miners</div>
 <div id="miners"></div><div class="sectionhead">Deposit history</div><div class="card"><div class="muted" style="text-align:center;padding:14px">No deposits yet</div></div><div class="warning">Miner purchases are one-time and permanent. Payments are reviewed before activation.</div></section>
-<section class="page" id="tasks"><div class="pageTitle">Tasks & rewards</div><div class="seg"><button class="sel" onclick="taskTab('invite',this)">Invite</button><button onclick="taskTab('daily',this)">Daily</button><button onclick="taskTab('join',this)">Join</button></div><div id="taskInvite"><div class="card"><div class="eyebrow">Your referral link</div><h3 style="margin-top:7px">Invite friends and earn LOOT</h3><p class="muted">Earn 5% lifetime commission from eligible referrals' credited mining rewards. Referral rewards unlock after verification and a paid miner purchase.</p><div class="input" id="refLink">https://t.me/AZM_Miner_Bot?start=YOUR_ID</div><button class="primary" onclick="copyReferral()">▣ &nbsp; Copy referral link</button></div><div class="grid2"><div class="card"><div class="eyebrow">Total referrals</div><div class="big" style="font-size:24px">0</div></div><div class="card"><div class="eyebrow">Referral earnings</div><div class="big" style="font-size:24px">0 <span class="unit">LOOT</span></div></div></div></div><div id="taskDaily" style="display:none"><div class="card"><div class="row"><div><div class="eyebrow">DAILY REWARDS</div><h3 style="margin:4px 0">30-day check-in</h3></div><span class="pill" id="checkinProgress">0 / 30 days</span></div><div class="row" style="margin:10px 0 4px"><span class="muted">Total rewards over 30 days</span><b class="gold">Up to 800 LOOT</b></div><div class="bar"><i id="checkinBar" style="width:0%"></i></div><p class="muted">Check in once every day for 30 days and collect up to 800 LOOT.</p><div class="dailygrid" id="dailyGrid"></div><button class="primary" style="margin-top:12px" id="checkinButton" onclick="dailyCheckin()">✓ &nbsp; Daily check-in</button><div class="muted" style="margin-top:8px;text-align:center">Demo preview: rewards will be securely credited after backend connection.</div></div></div><div id="taskJoin" style="display:none">
-  <div class="card">
-    <h3>Community tasks</h3>
-    <p class="muted" style="margin:4px 0 10px">Join each Telegram channel or group, then return and tap Verify to claim the reward.</p>
-    <div class="taskrow" id="communityTask_loot_channel">
-  <div style="flex:1;min-width:0;padding-right:10px"><b>JOIN official channel</b><small>Reward: <strong style="color:#ffbd3d">100 LOOT</strong></small></div>
-  <div style="display:flex;gap:6px;align-items:center">
-    <a class="mini" id="join_loot_channel" href="https://t.me/lootvault_channel" target="_blank" rel="noopener noreferrer" onclick="markCommunityTaskOpened('loot_channel')" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">Join</a>
-    <button class="mini" id="verify_loot_channel" onclick="verifyCommunityTask('loot_channel')" disabled style="opacity:.45">Verify</button>
-  </div>
-</div>
-    <div class="taskrow" id="communityTask_loot_community">
-  <div style="flex:1;min-width:0;padding-right:10px"><b>JOIN chat group</b><small>Reward: <strong style="color:#ffbd3d">100 LOOT</strong></small></div>
-  <div style="display:flex;gap:6px;align-items:center">
-    <a class="mini" id="join_loot_community" href="https://t.me/LootVault_Community" target="_blank" rel="noopener noreferrer" onclick="markCommunityTaskOpened('loot_community')" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">Join</a>
-    <button class="mini" id="verify_loot_community" onclick="verifyCommunityTask('loot_community')" disabled style="opacity:.45">Verify</button>
-  </div>
-</div>
-    <div class="taskrow" id="communityTask_crypto_news">
-  <div style="flex:1;min-width:0;padding-right:10px"><b>JOIN CryptoClarity News channel</b><small>Reward: <strong style="color:#ffbd3d">100 LOOT</strong></small></div>
-  <div style="display:flex;gap:6px;align-items:center">
-    <a class="mini" id="join_crypto_news" href="https://t.me/CryptoClarity_News" target="_blank" rel="noopener noreferrer" onclick="markCommunityTaskOpened('crypto_news')" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">Join</a>
-    <button class="mini" id="verify_crypto_news" onclick="verifyCommunityTask('crypto_news')" disabled style="opacity:.45">Verify</button>
-  </div>
-</div>
-    <div class="taskrow" id="communityTask_storm_bot">
-  <div style="flex:1;min-width:0;padding-right:10px"><b>START the STORM bot</b><small>Reward: <strong style="color:#ffbd3d">150 LOOT</strong></small></div>
-  <div style="display:flex;gap:6px;align-items:center">
-    <a class="mini" id="join_storm_bot" href="https://t.me/Mine_STORM_bot" target="_blank" rel="noopener noreferrer" onclick="markCommunityTaskOpened('storm_bot')" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">Join</a>
-    <button class="mini" id="verify_storm_bot" onclick="verifyCommunityTask('storm_bot')" disabled style="opacity:.45">Verify</button>
-  </div>
-</div>
-    <div class="notice" style="margin-top:12px">Task verification is frontend-only. Tapping Verify records completion on this device; Telegram membership is not checked by the app.</div>
-    <div class="row" style="margin-top:10px"><span class="muted">Community task rewards earned</span><b class="gold" id="communityTaskEarned">0 LOOT</b></div>
-  </div>
-</div></section>
+<section class="page" id="tasks"><div class="pageTitle">Tasks & rewards</div><div class="seg"><button class="sel" onclick="taskTab('invite',this)">Invite</button><button onclick="taskTab('daily',this)">Daily</button><button onclick="taskTab('join',this)">Join</button></div><div id="taskInvite"><div class="card"><div class="eyebrow">Your referral link</div><h3 style="margin-top:7px">Invite friends and earn LOOT</h3><p class="muted">Earn 5% lifetime commission from eligible referrals' credited mining rewards. Referral rewards unlock after verification and a paid miner purchase.</p><div class="input" id="refLink">https://t.me/AZM_Miner_Bot?start=YOUR_ID</div><button class="primary" onclick="copyReferral()">▣ &nbsp; Copy referral link</button></div><div class="grid2"><div class="card"><div class="eyebrow">Total referrals</div><div class="big" style="font-size:24px">0</div></div><div class="card"><div class="eyebrow">Referral earnings</div><div class="big" style="font-size:24px">0 <span class="unit">LOOT</span></div></div></div></div><div id="taskDaily" style="display:none"><div class="card"><div class="row"><div><div class="eyebrow">DAILY REWARDS</div><h3 style="margin:4px 0">30-day check-in</h3></div><span class="pill" id="checkinProgress">0 / 30 days</span></div><div class="row" style="margin:10px 0 4px"><span class="muted">Total rewards over 30 days</span><b class="gold">Up to 800 LOOT</b></div><div class="bar"><i id="checkinBar" style="width:0%"></i></div><p class="muted">Check in once every day for 30 days and collect up to 800 LOOT.</p><div class="dailygrid" id="dailyGrid"></div><button class="primary" style="margin-top:12px" id="checkinButton" onclick="dailyCheckin()">✓ &nbsp; Daily check-in</button><div class="muted" style="margin-top:8px;text-align:center">Demo preview: rewards will be securely credited after backend connection.</div></div></div><div id="taskJoin" style="display:none"><div class="card"><h3>Community tasks</h3><div class="taskrow"><div><b>Join LOOT official channel</b><small>Join our Telegram community</small></div><button class="mini" onclick="toast('Channel link will be configured')">Join</button></div><div class="taskrow"><div><b>Follow project updates</b><small>Stay updated with announcements</small></div><button class="mini" onclick="toast('Task link will be configured')">Open</button></div><p class="muted">Task rewards: 30 LOOT after proof review and admin approval.</p></div></div></section>
 <section class="page" id="withdraw"><div class="pageTitle">Wallet & withdraw</div><div class="card"><h3>Wallet address</h3><p class="muted">Enter your TON wallet address. Approved withdrawals will be sent to this saved address.</p><input class="input" id="walletInput" placeholder="Enter your TON wallet address"><button class="primary" onclick="saveWallet()">Save wallet address</button></div><div class="card"><div class="row"><span class="muted">In-app balance</span><b>0.00 LOOT</b></div><div class="row" style="margin-top:8px"><span class="muted">Available to withdraw</span><b class="cyan">0.00 LOOT</b></div><div class="row" style="margin-top:8px"><span class="muted">Withdrawal fee</span><b>5%</b></div><div class="row" style="margin-top:8px"><span class="muted">Minimum withdrawal</span><b>7,500 LOOT</b></div></div><div class="card"><h3>Withdrawal request</h3><div class="warning">You need at least one paid miner and a minimum gross balance of 7,500 LOOT to withdraw. Free Miner alone is not eligible.</div><input class="input" type="number" placeholder="Enter amount in LOOT" id="withdrawAmount"><button class="goldbtn" onclick="requestWithdraw()">Request withdrawal</button><p class="muted">Requests are manually reviewed by the admin. Net payout after 5% fee: 95%.</p></div><div class="sectionhead">Withdrawal history</div><div class="card"><div class="muted" style="text-align:center;padding:14px">No withdrawal requests yet</div></div></section>
 <section class="page" id="profile"><div class="pageTitle">My profile</div>
 <div class="card"><div class="row"><div><div class="eyebrow">Total balance</div><div class="big" style="font-size:30px;margin-top:5px"><span id="profileBalance">0.00</span> <span class="unit">LOOT</span></div></div><div class="avatar" style="width:46px;height:46px;font-size:20px">◉</div></div><div class="row" style="margin-top:12px"><span class="muted">Available balance</span><b class="cyan">0.00 LOOT</b></div><div class="row" style="margin-top:7px"><span class="muted">Mining rate</span><b>18 LOOT/hr</b></div></div>
@@ -62,246 +27,109 @@
 </main></div>
 <div class="modal-overlay" id="verificationModal" aria-hidden="true"><div class="modal-window">
   <div class="row"><h3 style="margin:0" id="paymentModalTitle">0.5 TON verification</h3><button class="mini" onclick="closeVerificationModal()">✕</button></div>
-  <p class="muted" id="paymentModalIntro">Send the exact amount to the payment address below. After sending, paste the transaction hash from your TON wallet history.</p>
-  <div class="card" style="padding:12px;margin:10px 0"><div class="eyebrow">PAYMENT SESSION</div><div class="row" style="margin-top:5px"><b style="font-size:25px;color:var(--gold2)" id="verifyPaymentAmount">0.5 TON</b><span class="pill" id="verifyPaymentCountdown">Creating…</span></div><div class="muted" id="verifyPaymentHint" style="margin-top:7px">Creating your payment request. Please wait.</div><div class="muted" id="paymentRequestId" style="margin-top:7px;word-break:break-all"></div></div>
-  <div class="eyebrow" id="paymentAddressLabel">TON RECEIVING ADDRESS</div><div class="address-box" id="verifyReceivingAddress" style="word-break:break-all;margin:6px 0 8px">Waiting for backend address…</div>
+  <p class="muted">Send the exact amount to the payment address below. After sending, paste the transaction hash from your TON wallet history.</p>
+  <div class="card" style="padding:12px;margin:10px 0"><div class="eyebrow">PAYMENT SESSION</div><div class="row" style="margin-top:5px"><b style="font-size:25px;color:var(--gold2)" id="verifyPaymentAmount">0.5 TON</b><span class="pill" id="verifyPaymentCountdown">Creating…</span></div><div class="muted" id="verifyPaymentHint" style="margin-top:7px">Creating your payment request. Please wait.</div></div>
+  <div class="eyebrow">TON PAYMENT ADDRESS</div><div class="address-box" id="verifyReceivingAddress" style="word-break:break-all;margin:6px 0 8px">UQCo0-D4DWT4Q99BJ35ONA7wduh_qtNwwpni55UyMhsFcY-x</div>
   <div class="row" style="gap:8px"><button class="mini" style="flex:1" onclick="copyVerificationAddress()">Copy address</button><button class="mini" style="flex:1" onclick="openVerificationWallet()">Open TON wallet</button></div>
   <label class="eyebrow" for="verifyTxHashInput" style="display:block;margin-top:14px">TRANSACTION HASH</label><input class="input" id="verifyTxHashInput" placeholder="Paste transaction hash from wallet history" autocomplete="off" style="margin-top:6px">
-  <button class="primary" id="submitVerificationBtn" style="margin-top:10px" onclick="submitVerificationPayment()">Submit transaction hash</button>
-  <p class="muted" id="paymentApprovalNote" style="font-size:10px;margin:9px 0 0">Payment is not automatically approved. Miner activation occurs only after admin approval.</p>
+  <button class="primary" id="submitVerificationBtn" style="margin-top:10px" onclick="submitSharedPayment()" >Submit payment for admin review</button>
+  <p class="muted" style="font-size:10px;margin:9px 0 0">Your payment is not automatically approved. Mining activates only after the admin checks the transaction.</p>
 </div></div>
 <nav class="subnav"><button class="tab active" data-tab="mine" onclick="go('mine',this)"><span class="ti">⌂</span>Mine</button><button class="tab" data-tab="upgrade" onclick="go('upgrade',this)"><span class="ti">♙</span>Upgrade</button><button class="tab" data-tab="tasks" onclick="go('tasks',this)"><span class="ti">▤</span>Tasks</button><button class="tab" data-tab="withdraw" onclick="go('withdraw',this)"><span class="ti">▣</span>Withdraw</button><button class="tab" data-tab="profile" onclick="go('profile',this)"><span class="ti">◉</span>Profile</button></nav><div class="toast" id="toast"></div>
 <script>
-// Set this to your deployed Vercel backend origin (without a trailing slash).
-const LOOT_API_BASE_URL = window.LOOT_API_BASE_URL || "YOUR_VERCEL_BACKEND_URL";
-const LOOT_API_TIMEOUT_MS = 20000;
-
-const miners=[
- ['Free Miner',18,'Free','Included after 0.5 TON verification',null],
- ['Rookie Miner',18,'1 TON','Permanent miner · one-time purchase','rookie'],
- ['Advanced Miner',35,'2 TON','Permanent miner · one-time purchase','advanced'],
- ['Pro Miner',50,'3 TON','Permanent miner · one-time purchase','pro'],
- ['Elite Miner',75,'5 TON','Permanent miner · one-time purchase','elite'],
- ['Titan Miner',100,'7.5 TON','Highest power · one-time purchase','titan']
-];
-document.getElementById('miners').innerHTML=miners.map((m,i)=>`<div class="miner"><div class="row"><h4>${m[0]}</h4><span class="price">+${m[1]} LOOT/hr</span></div><div class="desc">${m[3]}</div><div class="row"><span class="muted">${m[2]}</span><button class="mini ${i===0?'':'goldmini'}" data-miner-id="${m[4]||'free'}" onclick="${i===0?'openVerificationModal()':`purchaseMiner('${m[4]}',this)`}">${i===0?'Verify to activate':'Upgrade'}</button></div></div>`).join('');
-
+const miners=[['Free Miner',18,'Free','Included after 0.5 TON verification'],['Rookie Miner',18,'1 TON','Permanent miner · one-time purchase'],['Advanced Miner',35,'2 TON','Permanent miner · one-time purchase'],['Pro Miner',50,'3 TON','Permanent miner · one-time purchase'],['Elite Miner',75,'5 TON','Permanent miner · one-time purchase'],['Titan Miner',100,'7.5 TON','Highest power · one-time purchase']];
+document.getElementById('miners').innerHTML=miners.map((m,i)=>`<div class="miner"><div class="row"><h4>${m[0]}</h4><span class="price">+${m[1]} LOOT/hr</span></div><div class="desc">${m[3]}</div><div class="row"><span class="muted">${m[2]}</span><button class="mini ${i===0?'':'goldmini'}" onclick="${i===0?"openVerificationModal()":`openMinerPurchaseModal('${['free','rookie','advanced','pro','elite','titan'][i]}')`}">${i===0?'Verify to activate':'Purchase'}</button></div></div>`).join('');
 const checkinRewards=Array.from({length:30},(_,i)=>i<10?10:i<20?20:50);let checkinDay=Number(localStorage.getItem('azmCheckinDay')||0);let lastCheckin=localStorage.getItem('azmLastCheckin')||'';function renderCheckins(){document.getElementById('dailyGrid').innerHTML=checkinRewards.map((r,i)=>`<div class="day ${i<checkinDay?'done':''}">Day ${i+1}<b>+${r} LOOT</b></div>`).join('');document.getElementById('checkinProgress').textContent=`${checkinDay} / 30 days`;document.getElementById('checkinBar').style.width=(checkinDay/30*100)+'%';let today=new Date().toISOString().slice(0,10);let btn=document.getElementById('checkinButton');if(checkinDay>=30){btn.textContent='30-day reward completed';btn.disabled=true}else if(lastCheckin===today){btn.textContent='✓ Already checked in today';btn.disabled=true}else{btn.textContent=`✓ Check in · +${checkinRewards[checkinDay]} LOOT`;btn.disabled=false}}function dailyCheckin(){let today=new Date().toISOString().slice(0,10);if(lastCheckin===today){toast('You have already checked in today');return}if(checkinDay>=30){toast('30-day check-in completed');return}checkinDay++;lastCheckin=today;localStorage.setItem('azmCheckinDay',String(checkinDay));localStorage.setItem('azmLastCheckin',today);renderCheckins();toast(`Day ${checkinDay} check-in preview recorded · +${checkinRewards[checkinDay-1]} LOOT`)}renderCheckins();
 function go(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));window.scrollTo(0,0)}
-const COMMUNITY_TASKS={loot_channel:100,loot_community:100,crypto_news:100,storm_bot:150};
-const COMMUNITY_TASK_STORAGE_KEY='lootvault_community_tasks_v1';
-const COMMUNITY_TASK_OPEN_KEY='lootvault_community_tasks_opened_v1';
-function readCommunityTaskState(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}catch(e){return {}}}
-function communityTaskTotal(){const done=readCommunityTaskState(COMMUNITY_TASK_STORAGE_KEY);return Object.keys(COMMUNITY_TASKS).reduce((sum,id)=>sum+(done[id]?COMMUNITY_TASKS[id]:0),0)}
-function renderCommunityTasks(){
-  const opened=readCommunityTaskState(COMMUNITY_TASK_OPEN_KEY),done=readCommunityTaskState(COMMUNITY_TASK_STORAGE_KEY);
-  Object.keys(COMMUNITY_TASKS).forEach(id=>{
-    const join=document.getElementById('join_'+id),verify=document.getElementById('verify_'+id);
-    if(!join||!verify)return;
-    if(done[id]){join.style.display='none';verify.disabled=true;verify.textContent='Completed';verify.style.opacity='1';verify.style.borderColor='#1d725f';verify.style.color='#76d9b5'}
-    else if(opened[id]){verify.disabled=false;verify.style.opacity='1';verify.textContent='Verify'}
-  });
-  const total=communityTaskTotal(),earned=document.getElementById('communityTaskEarned');
-  if(earned)earned.textContent=total.toLocaleString()+' LOOT';
-  const balance=document.getElementById('balance'),profile=document.getElementById('profileBalance');
-  if(balance)balance.textContent=total.toFixed(2);
-  if(profile)profile.textContent=total.toFixed(2);
-}
-function markCommunityTaskOpened(id){
-  if(!Object.prototype.hasOwnProperty.call(COMMUNITY_TASKS,id))return;
-  const opened=readCommunityTaskState(COMMUNITY_TASK_OPEN_KEY);opened[id]=true;
-  localStorage.setItem(COMMUNITY_TASK_OPEN_KEY,JSON.stringify(opened));
-  const verify=document.getElementById('verify_'+id);if(verify){verify.disabled=false;verify.style.opacity='1'}
-  toast('Return here and tap Verify after joining');
-}
-function verifyCommunityTask(id){
-  if(!Object.prototype.hasOwnProperty.call(COMMUNITY_TASKS,id))return;
-  const opened=readCommunityTaskState(COMMUNITY_TASK_OPEN_KEY),done=readCommunityTaskState(COMMUNITY_TASK_STORAGE_KEY);
-  if(done[id]){toast('This task is already completed');return}
-  if(!opened[id]){toast('Tap Join first');return}
-  done[id]=true;localStorage.setItem(COMMUNITY_TASK_STORAGE_KEY,JSON.stringify(done));
-  renderCommunityTasks();toast('Task completed · +'+COMMUNITY_TASKS[id]+' LOOT');
-}
-renderCommunityTasks();
 function taskTab(id,btn){['invite','daily','join'].forEach(x=>document.getElementById('task'+x[0].toUpperCase()+x.slice(1)).style.display=x===id?'block':'none');document.querySelectorAll('.seg button').forEach(b=>b.classList.toggle('sel',b===btn))}
 function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600)}
 function copyReferral(){navigator.clipboard?.writeText(document.getElementById('refLink').textContent).then(()=>toast('Referral link copied')).catch(()=>toast('Copy is not available in this browser'))}
-const LOOT_VERIFY_ADDRESS = ''; // Never use a client-side fallback receiving address.
-let activeVerificationRequest=null, verificationCountdown=null;
-let paymentRequestBusy=false, paymentSubmitBusy=false, activePaymentMode='verification';
-
-function telegramInitData(){return window.Telegram?.WebApp?.initData||'';}
-function apiUrl(path){
-  const base=String(LOOT_API_BASE_URL||'').trim().replace(/\/+$/,'');
-  if(!base||base==='YOUR_VERCEL_BACKEND_URL') throw new Error('Backend URL is not configured. Set LOOT_API_BASE_URL to your Vercel backend URL.');
-  return `${base}${path}`;
-}
-async function postLootApi(path,payload){
-  const controller=new AbortController(), timeout=setTimeout(()=>controller.abort(),LOOT_API_TIMEOUT_MS);
-  try{
-    const response=await fetch(apiUrl(path),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:controller.signal});
-    const data=await response.json().catch(()=>({}));
-    if(!response.ok||data.ok===false){
-      const code=String(data.code||data.error_code||data.error||data.detail||'').toLowerCase();
-      const known=[
-        [/not_verified|verification_required|unverified/,'Account verification is required first. Complete the one-time 0.5 TON verification.'],
-        [/already_verified/,'Your account is already verified. You do not need to pay the verification fee again.'],
-        [/invalid_miner|miner_id/,'That miner selection is invalid. Please refresh and try again.'],
-        [/expired|payment_request_expired/,'This payment request has expired. Create a new request.'],
-        [/duplicate.*hash|hash.*duplicate/,'This transaction hash has already been submitted.'],
-        [/already_submitted|payment_already_submitted/,'This payment has already been submitted and is awaiting review.'],
-        [/invalid.*hash|hash.*invalid/,'The transaction hash is invalid. Check it and try again.']
-      ];
-      const match=known.find(([pattern])=>pattern.test(code));
-      throw new Error(match?match[1]:(data.message||data.detail||data.error||`Request failed (${response.status}).`));
-    }
-    return data;
-  }catch(error){
-    if(error.name==='AbortError') throw new Error('The request timed out. Check your connection and try again.');
-    if(error instanceof TypeError) throw new Error('Could not reach the payment server. Check your connection and backend URL.');
-    throw error;
-  }finally{clearTimeout(timeout);}
-}
-function setPaymentModalMode(mode,minerName){
-  activePaymentMode=mode;
-  document.getElementById('paymentModalTitle').textContent=mode==='verification'?'0.5 TON verification':`${minerName} purchase`;
-  document.getElementById('paymentModalIntro').textContent=mode==='verification'
-    ?'Send exactly 0.5 TON to the backend-provided address, then submit your wallet transaction hash.'
-    :'Send the exact miner purchase amount to the backend-provided address, then submit your wallet transaction hash.';
-  document.getElementById('paymentAddressLabel').textContent='TON RECEIVING ADDRESS';
-  document.getElementById('submitVerificationBtn').textContent=mode==='verification'?'Submit for verification':'Submit purchase payment';
-  document.getElementById('paymentApprovalNote').textContent='Payment is not automatically approved. A miner is activated only after admin approval is confirmed by the backend.';
-}
-function showPaymentModal(){
+const LOOT_API_BASE_URL=window.LOOT_API_BASE_URL||'https://lootvaultbackend.vercel.app';
+const LOOT_VERIFY_ADDRESS='';
+let activePaymentRequest=null,paymentCountdown=null,pendingPaymentType='verification',pendingMinerId=null;
+function telegramInitData(){return window.Telegram?.WebApp?.initData||''}
+function openVerificationModal(){
+  pendingPaymentType='verification';pendingMinerId=null;
+  document.getElementById('paymentModalTitle').textContent='0.5 TON account verification';
+  document.getElementById('submitVerificationBtn').textContent='Submit payment for admin review';
   document.getElementById('verifyTxHashInput').value='';
-  document.getElementById('verifyPaymentAmount').textContent='— TON';
-  document.getElementById('verifyPaymentCountdown').textContent='Creating…';
-  document.getElementById('verifyPaymentHint').textContent='Connecting to the LOOT payment server.';
-  document.getElementById('verifyReceivingAddress').textContent='Waiting for backend address…';
-  document.getElementById('paymentRequestId').textContent='';
   document.getElementById('verificationModal').classList.add('show');
   document.getElementById('verificationModal').setAttribute('aria-hidden','false');
+  createSharedPaymentSession();
 }
-function openVerificationModal(){
-  if(paymentRequestBusy)return;
-  setPaymentModalMode('verification');showPaymentModal();createVerificationPaymentSession();
+function openMinerPurchaseModal(minerId){
+  pendingPaymentType='miner_purchase';pendingMinerId=minerId;
+  const miner=miners.find((m,i)=>['free','rookie','advanced','pro','elite','titan'][i]===minerId);
+  if(!miner){toast('Invalid miner selected');return}
+  document.getElementById('paymentModalTitle').textContent='Purchase '+miner[0];
+  document.getElementById('submitVerificationBtn').textContent='Submit purchase for admin review';
+  document.getElementById('verifyTxHashInput').value='';
+  document.getElementById('verificationModal').classList.add('show');
+  document.getElementById('verificationModal').setAttribute('aria-hidden','false');
+  createSharedPaymentSession();
 }
 function closeVerificationModal(){
   document.getElementById('verificationModal').classList.remove('show');
   document.getElementById('verificationModal').setAttribute('aria-hidden','true');
-  clearInterval(verificationCountdown);activeVerificationRequest=null;
+  clearInterval(paymentCountdown);activePaymentRequest=null;
 }
-function paymentErrorText(data,fallback){
-  const raw=String(data?.message||data?.detail||data?.error||data?.code||fallback||'');
-  if(/already.?verified/i.test(raw))return 'Your account is already verified. You do not need to pay the verification fee again.';
-  if(/not.?verified|verification.?required|unverified/i.test(raw))return 'Account verification is required first. Complete the one-time 0.5 TON verification.';
-  if(/invalid.?miner/i.test(raw))return 'That miner selection is invalid. Please refresh and try again.';
-  return raw||'Could not create the payment request.';
-}
-function validatePaymentRequest(data,expectedType,expectedMinerId){
-  if(!data||!data.ok||!data.payment_request_id)throw new Error(paymentErrorText(data,'The backend did not return a valid payment request.'));
-  if(data.payment_type&&data.payment_type!==expectedType)throw new Error('The backend returned an unexpected payment type.');
-  if(expectedMinerId&&data.miner_id&&data.miner_id!==expectedMinerId)throw new Error('The backend returned a different miner than selected.');
-  const amount=Number(data.amount_ton),destination=String(data.destination_address||'').trim(),expiresAt=Date.parse(data.expires_at||'');
-  if(!Number.isFinite(amount)||amount<=0)throw new Error('The backend returned an invalid payment amount.');
-  if(!destination)throw new Error('The backend did not provide a receiving wallet address.');
-  if(!Number.isFinite(expiresAt))throw new Error('The backend did not provide a valid payment expiry time.');
-  return {id:String(data.payment_request_id),expiresAt,destination,amount,minerId:data.miner_id||expectedMinerId||null,minerName:data.miner_name||null};
-}
-async function createVerificationPaymentSession(){
-  if(paymentRequestBusy)return;
+async function createSharedPaymentSession(){
+  clearInterval(paymentCountdown);activePaymentRequest=null;
+  const countdown=document.getElementById('verifyPaymentCountdown');
+  const hint=document.getElementById('verifyPaymentHint');
+  countdown.textContent='Creating…';hint.textContent='Connecting to the LOOT payment server.';
   const initData=telegramInitData();
-  if(!initData){document.getElementById('verifyPaymentCountdown').textContent='Unavailable';document.getElementById('verifyPaymentHint').textContent='Open LOOTVault inside Telegram to authenticate and create a payment request.';toast('Telegram authentication is missing. Open this Mini App inside Telegram.');return;}
-  paymentRequestBusy=true;clearInterval(verificationCountdown);activeVerificationRequest=null;
+  if(!initData){countdown.textContent='Unavailable';hint.textContent='Open LOOTVault inside Telegram to create a payment request.';return}
   try{
-    const data=await postLootApi('/create-payment',{payment_type:'verification',init_data:initData});
-    if(data.already_verified||data.status==='already_verified'){
-      document.getElementById('verifyPaymentCountdown').textContent='Already verified';
-      document.getElementById('verifyPaymentHint').textContent='The backend confirms your account is already verified. No second verification payment is needed.';
-      toast('Your account is already verified.');return;
-    }
-    activeVerificationRequest=validatePaymentRequest(data,'verification');renderPaymentRequest(activeVerificationRequest);
-  }catch(error){
-    document.getElementById('verifyPaymentCountdown').textContent='Not created';
-    document.getElementById('verifyPaymentHint').textContent=error.message;toast(error.message);
-  }finally{paymentRequestBusy=false;}
+    const payload={init_data:initData,payment_type:pendingPaymentType};
+    if(pendingPaymentType==='miner_purchase')payload.miner_id=pendingMinerId;
+    const response=await fetch(`${LOOT_API_BASE_URL}/create-payment`,{
+      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
+    });
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok||!data.ok)throw new Error(data.error||data.detail||'Could not create payment request');
+    activePaymentRequest={id:data.payment_request_id,expiresAt:Date.parse(data.expires_at),destination:data.destination_address,amount:Number(data.amount_ton)};
+    document.getElementById('verifyPaymentAmount').textContent=activePaymentRequest.amount+' TON';
+    document.getElementById('verifyReceivingAddress').textContent=activePaymentRequest.destination;
+    hint.textContent=`Send exactly ${activePaymentRequest.amount} TON to this address, then paste the transaction hash from your wallet history.`;
+    updateSharedPaymentCountdown();paymentCountdown=setInterval(updateSharedPaymentCountdown,1000);
+  }catch(e){countdown.textContent='Not created';hint.textContent=e.message||'Payment server unavailable. Try again.';toast(e.message||'Could not create payment request')}
 }
-async function purchaseMiner(minerId,button){
-  if(!['rookie','advanced','pro','elite','titan'].includes(minerId)){toast('Invalid miner selection. Please refresh and try again.');return;}
-  if(paymentRequestBusy||paymentSubmitBusy)return;
-  const initData=telegramInitData();
-  if(!initData){toast('Telegram authentication is missing. Open LOOTVault inside Telegram.');return;}
-  const originalText=button?.textContent||'Upgrade';
-  if(button){button.disabled=true;button.textContent='CREATING…';}
-  paymentRequestBusy=true;
-  try{
-    const data=await postLootApi('/create-payment',{payment_type:'miner_purchase',miner_id:minerId,init_data:initData});
-    if(data.verification_required||data.code==='verification_required'||data.error_code==='verification_required'){
-      toast('Complete the one-time 0.5 TON verification before buying a paid miner.');
-      setPaymentModalMode('verification');showPaymentModal();await createVerificationPaymentSession();return;
-    }
-    const name=data.miner_name||`${minerId[0].toUpperCase()}${minerId.slice(1)} Miner`;
-    setPaymentModalMode('miner_purchase',name);showPaymentModal();
-    activeVerificationRequest=validatePaymentRequest(data,'miner_purchase',minerId);
-    renderPaymentRequest(activeVerificationRequest);
-  }catch(error){
-    if(/verification is required first|complete the one-time 0\.5 TON verification/i.test(error.message||'')){
-      toast('Complete the one-time 0.5 TON verification before buying a paid miner.');
-      setPaymentModalMode('verification');showPaymentModal();
-      paymentRequestBusy=false;
-      await createVerificationPaymentSession();
-    }else toast(error.message||'Could not create miner purchase request.');
-  }
-  finally{paymentRequestBusy=false;if(button){button.disabled=false;button.textContent=originalText;}}
-}
-function renderPaymentRequest(request){
-  document.getElementById('verifyPaymentAmount').textContent=`${request.amount} TON`;
-  document.getElementById('verifyReceivingAddress').textContent=request.destination;
-  document.getElementById('paymentRequestId').textContent=`Payment request ID: ${request.id}`;
-  document.getElementById('verifyPaymentHint').textContent=request.minerName
-    ?`${request.minerName} · Send the exact amount shown above, then submit your transaction hash.`
-    :'Send exactly the amount shown above, then paste the transaction hash from your TON wallet history.';
-  updateVerificationCountdown();clearInterval(verificationCountdown);verificationCountdown=setInterval(updateVerificationCountdown,1000);
-}
-function updateVerificationCountdown(){
-  if(!activeVerificationRequest)return;
-  const left=Math.max(0,Math.ceil((activeVerificationRequest.expiresAt-Date.now())/1000));
+function updateSharedPaymentCountdown(){
+  if(!activePaymentRequest)return;
+  const left=Math.max(0,Math.ceil((activePaymentRequest.expiresAt-Date.now())/1000));
   document.getElementById('verifyPaymentCountdown').textContent=left>0?`${String(Math.floor(left/60)).padStart(2,'0')}:${String(left%60).padStart(2,'0')} LEFT`:'EXPIRED';
-  if(left<=0){clearInterval(verificationCountdown);activeVerificationRequest=null;document.getElementById('verifyPaymentHint').textContent='Payment request expired. Create a new request.';}
+  if(left<=0){clearInterval(paymentCountdown);activePaymentRequest=null}
 }
 function copyVerificationAddress(){
-  const address=document.getElementById('verifyReceivingAddress').textContent.trim();
-  if(!address||address==='Waiting for backend address…'){toast('Receiving address is not available yet');return;}
-  navigator.clipboard?.writeText(address).then(()=>toast('TON address copied')).catch(()=>toast('Copy unavailable; select the address manually'));
+  const a=document.getElementById('verifyReceivingAddress').textContent;
+  navigator.clipboard?.writeText(a).then(()=>toast('TON address copied')).catch(()=>toast('Copy unavailable; select the address manually'))
 }
 function openVerificationWallet(){
-  if(!activeVerificationRequest){toast('Create a payment request first');return;}
-  const amount=String(Math.round(activeVerificationRequest.amount*1e9));
-  window.open(`https://app.tonkeeper.com/transfer/${encodeURIComponent(activeVerificationRequest.destination)}?amount=${amount}`,'_blank','noopener');
+  const a=document.getElementById('verifyReceivingAddress').textContent;
+  const amount=String(Math.round(Number(document.getElementById('verifyPaymentAmount').textContent.replace(/[^0-9.]/g,''))*1e9));
+  window.open(`https://app.tonkeeper.com/transfer/${encodeURIComponent(a)}?amount=${amount}`,'_blank','noopener')
 }
-async function submitVerificationPayment(){
-  if(paymentSubmitBusy)return;
+async function submitSharedPayment(){
   const hash=document.getElementById('verifyTxHashInput').value.trim();
-  if(!hash){toast('Paste the transaction hash from your TON wallet');return;}
-  const initData=telegramInitData();
-  if(!initData){toast('Open LOOTVault inside Telegram to submit payment');return;}
-  if(!activeVerificationRequest){toast('Payment request missing or expired. Create a new request.');return;}
-  if(Date.now()>=activeVerificationRequest.expiresAt){updateVerificationCountdown();toast('Payment window expired. Create a new request.');return;}
-  const btn=document.getElementById('submitVerificationBtn'),originalText=btn.textContent;
-  paymentSubmitBusy=true;btn.disabled=true;btn.textContent='SUBMITTING…';
+  if(!hash){toast('Paste the transaction hash from your TON wallet');return}
+  if(!telegramInitData()){toast('Open LOOTVault inside Telegram to submit payment');return}
+  if(!activePaymentRequest){toast('Payment request missing or expired. Create a new request.');return}
+  if(Date.now()>activePaymentRequest.expiresAt){clearInterval(paymentCountdown);activePaymentRequest=null;toast('Payment window expired. Create a new request.');return}
+  const btn=document.getElementById('submitVerificationBtn');btn.disabled=true;btn.textContent='SUBMITTING…';
   try{
-    const data=await postLootApi('/verify-payment',{init_data:initData,payment_request_id:activeVerificationRequest.id,tx_hash:hash});
-    if(!data.ok||(data.status&&!['awaiting_admin','pending','submitted'].includes(data.status)))throw new Error(paymentErrorText(data,'Could not submit payment for admin review.'));
-    clearInterval(verificationCountdown);activeVerificationRequest=null;
-    document.getElementById('verifyPaymentCountdown').textContent='Submitted';
-    document.getElementById('verifyPaymentHint').textContent='Payment submitted successfully. Your miner purchase is awaiting admin approval.';
-    document.getElementById('verifyTxHashInput').value='';
-    toast('Payment submitted successfully. Your miner purchase is awaiting admin approval.');
-    // Submission is not approval: this code intentionally does not activate a miner.
-  }catch(error){toast(error.message||'Submission failed. Check the transaction hash and try again.');}
-  finally{paymentSubmitBusy=false;btn.disabled=false;btn.textContent=originalText;}
+    const response=await fetch(`${LOOT_API_BASE_URL}/verify-payment`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({init_data:telegramInitData(),payment_request_id:activePaymentRequest.id,tx_hash:hash})
+    });
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok||!data.ok||data.status!=='awaiting_admin'||!data.pending)throw new Error(data.error||data.detail||'Could not submit payment for admin review');
+    clearInterval(paymentCountdown);activePaymentRequest=null;closeVerificationModal();
+    toast('Payment submitted. Waiting for admin approval.');
+  }catch(e){toast(e.message||'Submission failed. Check the transaction hash and try again.')}
+  finally{btn.disabled=false;btn.textContent=pendingPaymentType==='verification'?'Submit payment for admin review':'Submit purchase for admin review'}
 }
-
+function submitVerificationPayment(){return submitSharedPayment()}
 function saveWallet(){let v=document.getElementById('walletInput').value.trim();if(!v){toast('Enter your TON wallet address');return}document.getElementById('walletShort').textContent=v.slice(0,8)+'…'+v.slice(-6);toast('Wallet shown in preview (backend saving not connected)')}
 function requestWithdraw(){let a=Number(document.getElementById('withdrawAmount').value);if(!a){toast('Enter withdrawal amount');return}if(a<7500){toast('Minimum withdrawal is 7,500 LOOT');return}toast('Preview only: withdrawal API not connected')}
 function historyTab(type,btn){document.querySelectorAll('#profile .seg button').forEach(b=>b.classList.toggle('sel',b===btn));toast('Transaction filters will work when history is connected to the backend')}
@@ -329,4 +157,3 @@ function toggleTheme(){currentTheme=currentTheme==='dark'?'light':'dark';localSt
 applyLanguage();applyTheme();
 
 </script></body></html>
-
